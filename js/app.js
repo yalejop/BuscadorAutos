@@ -118,8 +118,24 @@ function llenarSelect() {
 function filtrarAuto() {
     const resultado = autos.filter(filtrarMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtrarColor)
 
-    mostrarAutos(resultado)
-    console.log(resultado)
+    if(resultado.length) {
+        mostrarAutos(resultado);
+    } else {
+        noResultado();
+    }
+    
+    //console.log(resultado)
+}
+
+function noResultado() {
+
+    limpiarHTML();
+
+    const noResultado = document.createElement('div');
+    noResultado.classList.add('alerta', 'error')
+    noResultado.textContent = 'No hay Contenido en tu Busqueda';
+    resultado.appendChild(noResultado);
+
 }
 
 function filtrarMarca(auto) {
