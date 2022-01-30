@@ -1,9 +1,29 @@
 //variables
+const year = document.querySelector('#year');
+const marca = document.querySelector('#marca');
+const minimo = document.querySelector('#minimo');
+const maximo = document.querySelector('#maximo')
+const puertas = document.querySelector('#puertas')
+const transmision= document.querySelector('#transmision')
+const color = document.querySelector('#color')
+
+//generar select para  el año de busqueda
 const resultado = document.querySelector('#resultado');
-const year = document.querySelector('#year')
+
 
 const max = new Date().getFullYear();
 const min = max - 10;
+
+//generate un objeto con la búsqueda
+const datosBusqueda = {
+    marca : '',
+    year : '',
+    minimo : '',
+    maximo : '',
+    puertas : '',
+    transmision : '',
+    color : '',
+}
 
 
 //eventos
@@ -12,6 +32,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //llena las opciones de años
     llenarSelect();
+})
+
+marca.addEventListener('change', e => {
+    datosBusqueda.marca = e.target.value;
+})
+
+year.addEventListener('change', e => {
+    datosBusqueda.year = e.target.value;
+})
+
+minimo.addEventListener('change', e => {
+    datosBusqueda.minimo = e.target.value;
+})
+
+maximo.addEventListener('change', e => {
+    datosBusqueda.maximo = e.target.value;
+})
+
+puertas.addEventListener('change', e => {
+    datosBusqueda.puertas = e.target.value;
+})
+
+transmision.addEventListener('change', e => {
+    datosBusqueda.transmision = e.target.value;
+})
+
+color.addEventListener('change', e => {
+    datosBusqueda.color = e.target.value;
 })
 
 
